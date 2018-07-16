@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   howManyPointsToWin: 10
-  playerFirstScore: 0
-  playerSecondScore: 0
+  playerFirstScore: 6
+  playerSecondScore: 5
   whoWonText: {fileID: 0}
   wonTheGameScreen: {fileID: 0}
 --- !u!222 &222295640987523188

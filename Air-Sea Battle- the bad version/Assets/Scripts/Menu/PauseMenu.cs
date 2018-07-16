@@ -12,11 +12,16 @@ public class PauseMenu : MainMenu {
 
     public override void Awake()
     {
-        lvlChanger = FindObjectOfType<LvlChanger>();
         currentlvl = SceneManager.GetActiveScene().buildIndex;
         source = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        lvlChanger = FindObjectOfType<LvlChanger>();
         player = GameObject.FindGameObjectsWithTag("Player");
     }
+
     public void Update()
     {
         if (endGameScreen.activeSelf == false)

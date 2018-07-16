@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 
 public class EnemyBasic : MonoBehaviour {
+
     public int points;
     public float speed;
     public ScoreManager score;
@@ -15,11 +16,11 @@ public class EnemyBasic : MonoBehaviour {
 
     public virtual void Awake()
     {
-        score = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreManager>();
         source = GetComponent<AudioSource>();
     }
 
-   public virtual void Update ()
+
+    public virtual void Update ()
     {
         if (spawnPoint != null)
         {
@@ -53,7 +54,9 @@ public class EnemyBasic : MonoBehaviour {
     {
         if(col.gameObject.tag == "Bullet")
         {
+            score = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreManager>();
             moving = false;
+
             if (col.gameObject.GetComponent<Bullet>().playerOne == true)
             {
                 score.playerFirstScore = score.playerFirstScore + points;

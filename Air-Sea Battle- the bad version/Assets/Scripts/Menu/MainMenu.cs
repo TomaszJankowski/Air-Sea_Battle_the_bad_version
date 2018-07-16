@@ -1,23 +1,28 @@
-﻿using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 
 public class MainMenu : MonoBehaviour {
-
+    GameObject manager;
+    public GameObject gameManager;
+    public Slider slider;
 
     public AudioClip buttonPressSound;
     [HideInInspector]
     public AudioSource source;
     [HideInInspector]
     public AudioListener masterVolume;
-    public GameObject gameManager;
+    [HideInInspector]
     public LvlChanger lvlChanger;
+    
    
-
     public virtual void Awake()
     {
-        if(GameObject.FindGameObjectWithTag("Manager") == null)
-            Instantiate(gameManager);
+        if (GameObject.FindGameObjectWithTag("Manager") == null)
+        {
+            manager = Instantiate(gameManager);
+            manager.GetComponentInChildren<AudioManager>().volumeSlider = slider;
+        }
 
         lvlChanger = FindObjectOfType<LvlChanger>();
         source = GetComponent<AudioSource>();

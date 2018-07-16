@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57501ee2696a5284faa0209c73a3a5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioM: {fileID: 114591816495646718}
 --- !u!114 &114435517584921614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  lvlToLoad: 0
 --- !u!114 &114591816495646718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d59a822c56049440acce216dc888ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentvolume: 0
+  volumeSlider: {fileID: 0}
 --- !u!114 &114673466273448540
 MonoBehaviour:
   m_ObjectHideFlags: 1

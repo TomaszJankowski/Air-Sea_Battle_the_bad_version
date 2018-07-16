@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour {
 
     float volume;
-    float currentvolume;
-    Slider volumeSlider;
+    public float currentvolume;
+    [HideInInspector]
+    public Slider volumeSlider;
 
 	void Update () {
 
@@ -14,7 +15,7 @@ public class AudioManager : MonoBehaviour {
         {
             volume = volumeSlider.value;
             AudioListener.volume = volume;
-            currentvolume = volume;
+            currentvolume = AudioListener.volume;
         }
         else
         {
@@ -37,8 +38,8 @@ public class AudioManager : MonoBehaviour {
     {
         if (scene.name == "Menu")
         {
-            volume = AudioListener.volume;
-            volumeSlider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
+            volume = currentvolume;
+           // volumeSlider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
             volumeSlider.value = volume;
         }
         Debug.Log(scene.name);

@@ -11,11 +11,15 @@ public class EnemySpecial : EnemyBasic {
     public override void Awake()
     {
         base.Awake();
-        targets = GameObject.FindGameObjectsWithTag("Player");
         flip = GetComponent<SpriteRenderer>();
         Physics2D.IgnoreLayerCollision(0,9,true);
-        indexs = Random.Range(0, targets.Length);
+    }
+
+    public void Start()
+    {
+        targets = GameObject.FindGameObjectsWithTag("Player");
         target = targets[indexs];
+        indexs = Random.Range(0, targets.Length);
         Debug.Log(target);
     }
 
@@ -40,7 +44,9 @@ public class EnemySpecial : EnemyBasic {
 
     public override void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Player")
+        base.OnCollisionEnter2D(col);
+
+        if (col.gameObject.tag == "Player")
         {
             source.PlayOneShot(playerKillSound);
             Debug.Log("Hit");
@@ -49,7 +55,6 @@ public class EnemySpecial : EnemyBasic {
             Destroy(col.gameObject);
             Invoke("StopGame", 0.3f);
         }
-        base.OnCollisionEnter2D(col);
     }
 
 

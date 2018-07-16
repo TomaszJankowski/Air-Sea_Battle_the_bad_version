@@ -15,7 +15,7 @@ public class Player_Movement : MonoBehaviour {
 
     public virtual void FixedUpdate()
     {
-           rightleft = Input.GetAxisRaw("Horizontal");
+           rightleft = Input.GetAxis("Horizontal");
            rb.velocity = new Vector2(rightleft,0f) * speed * Time.deltaTime;
     }
 }
