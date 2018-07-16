@@ -6,10 +6,14 @@ public class PauseMenu : MainMenu {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI,endGameScreen,scoreCanvas;
 
+    int currentlvl;
+
     GameObject[] player;
 
     public override void Awake()
     {
+        lvlChanger = FindObjectOfType<LvlChanger>();
+        currentlvl = SceneManager.GetActiveScene().buildIndex;
         source = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectsWithTag("Player");
     }
@@ -65,14 +69,14 @@ public class PauseMenu : MainMenu {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.LoadScene(1);
+        lvlChanger.FadeToLevel(currentlvl);
     }
 
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.LoadScene(0);
+        lvlChanger.FadeToLevel(0);
     }
 
 }

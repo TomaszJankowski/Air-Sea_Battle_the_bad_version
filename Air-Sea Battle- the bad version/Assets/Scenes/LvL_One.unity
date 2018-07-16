@@ -393,6 +393,19 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1557994560517128, guid: 7f9f7d4e7f756ba459bf34eda59afc63, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757864407272698, guid: 7f9f7d4e7f756ba459bf34eda59afc63, type: 2}
+      propertyPath: m_Name
+      value: PauseText
+      objectReference: {fileID: 0}
+    - target: {fileID: 224224837994249310, guid: 7f9f7d4e7f756ba459bf34eda59afc63,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -63.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f9f7d4e7f756ba459bf34eda59afc63, type: 2}
   m_IsPrefabParent: 0

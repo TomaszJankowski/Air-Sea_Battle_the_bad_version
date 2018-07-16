@@ -905,8 +905,9 @@ MonoBehaviour:
   buttonPressSound: {fileID: 8300000, guid: d764ccfa569566b48b32aaf0104e41b3, type: 3}
   source: {fileID: 0}
   masterVolume: {fileID: 0}
-  audioManager: {fileID: 1733005083791950, guid: d5628e7a6dc6da04a8fd5084ea9cf9cb,
+  gameManager: {fileID: 1952836661209016, guid: 499465c041148d04e9d46e1a3da2ca79,
     type: 2}
+  lvlChanger: {fileID: 0}
 --- !u!82 &590874966
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1220,7 +1221,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.501
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -9,6 +9,7 @@ TagManager:
   - End
   - Audio
   - Slider
+  - Manager
   layers:
   - Default
   - TransparentFX
