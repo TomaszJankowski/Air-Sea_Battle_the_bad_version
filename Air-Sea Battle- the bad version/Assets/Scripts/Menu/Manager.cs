@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using TMPro;
+
 
 public class Manager : MonoBehaviour {
 
     public AudioManager audioM;
+    public TMP_Dropdown quality;
+    public Toggle fullscreen;
+
 
     void Awake()
     {
@@ -26,11 +32,13 @@ public class Manager : MonoBehaviour {
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream SaveFile = File.Create(Application.persistentDataPath + "/SavedData.dat");
-
         PlayerData data = new PlayerData();
-        data.volume = audioM.currentvolume;
 
+        data.volume = audioM.currentvolume;
+        data.qualitySetting = QualitySettings.GetQualityLevel();
+        data.fullscreenState = Screen.fullScreen;
         bf.Serialize(SaveFile, data);
+        Debug.Log(fullscreen.isOn + " " + data.fullscreenState);
         SaveFile.Close();
     }
 
@@ -44,6 +52,12 @@ public class Manager : MonoBehaviour {
             loadFile.Close();
 
             audioM.currentvolume = data.volume;
+            quality.value = data.qualitySetting;
+            QualitySettings.SetQualityLevel(data.qualitySetting);
+            fullscreen.isOn = data.fullscreenState;
+            Screen.fullScreen = data.fullscreenState;
+            Debug.Log(fullscreen.isOn + " " + data.fullscreenState);
+
         }
     }
 
@@ -51,6 +65,8 @@ public class Manager : MonoBehaviour {
     class PlayerData
     {
         public float volume;
+        public int qualitySetting;
+        public bool fullscreenState;
     }
 }
 

@@ -14,6 +14,7 @@ public class EnemyBasic : MonoBehaviour {
     [HideInInspector]
     public AudioSource source;
 
+
     public virtual void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -72,6 +73,11 @@ public class EnemyBasic : MonoBehaviour {
     }
 
    public void Dead()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
     {
         Destroy(gameObject);
     }

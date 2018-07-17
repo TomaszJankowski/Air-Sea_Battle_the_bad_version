@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject gameManager;
     public Slider slider;
 
+
     public AudioClip buttonPressSound;
     [HideInInspector]
     public AudioSource source;
@@ -24,10 +25,14 @@ public class MainMenu : MonoBehaviour {
             manager.GetComponentInChildren<AudioManager>().volumeSlider = slider;
         }
 
+
+
         lvlChanger = FindObjectOfType<LvlChanger>();
         source = GetComponent<AudioSource>();
         source.PlayDelayed(0.3f);
     }
+
+
 
     public void LoadSingleSurvival()
     {

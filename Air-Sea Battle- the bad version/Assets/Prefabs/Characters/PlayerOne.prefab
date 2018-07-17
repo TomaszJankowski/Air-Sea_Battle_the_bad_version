@@ -254,7 +254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToFire: 0.61
-  timeToDestroyBullet: 2.5
   firePoint: {fileID: 4695202313689520}
   bulletPrefab: {fileID: 1655128624891732, guid: 02cbd2db428f56942be1a535260ed657,
     type: 2}
@@ -275,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040d488a77f23af4c98a0ca29ceaff37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 130
+  speed: 120
   rightleft: 0
   rb: {fileID: 0}
 --- !u!212 &212274834810894812

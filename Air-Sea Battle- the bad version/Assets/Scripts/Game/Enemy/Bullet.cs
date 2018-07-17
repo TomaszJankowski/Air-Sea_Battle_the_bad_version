@@ -6,4 +6,9 @@ public class Bullet : MonoBehaviour {
     void Update () {
         transform.Translate(Vector3.up * speed * Time.deltaTime, Space.Self);
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class Movement_P2 : Player_Movement {
-
+    
     public override void FixedUpdate()
     {
        rightleft = Input.GetAxis("Vertical");

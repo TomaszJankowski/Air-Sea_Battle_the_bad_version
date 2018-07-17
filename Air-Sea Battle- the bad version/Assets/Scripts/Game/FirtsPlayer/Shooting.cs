@@ -2,7 +2,7 @@
 
 public class Shooting : MonoBehaviour {
  
-    public float timeToFire, timeToDestroyBullet;
+    public float timeToFire;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
@@ -72,7 +72,6 @@ public class Shooting : MonoBehaviour {
         source.PlayOneShot(shootingSound);
         Debug.Log(rot);
         bulScript.playerOne = true;
-        Destroy(bullet, timeToDestroyBullet);
     }
 
 
