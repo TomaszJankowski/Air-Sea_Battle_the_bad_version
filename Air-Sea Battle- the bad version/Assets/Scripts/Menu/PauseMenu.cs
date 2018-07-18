@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MainMenu {
 
     public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI,endGameScreen,scoreCanvas;
+    public GameObject pauseMenuUI,endGameScreen,scoreCanvas, wonGameScreen;
 
     int currentlvl;
-
+    bool disablePause;
     GameObject[] player;
 
     public override void Awake()
@@ -22,9 +23,19 @@ public class PauseMenu : MainMenu {
         player = GameObject.FindGameObjectsWithTag("Player");
     }
 
-    public void Update()
+    public void LateUpdate()
     {
-        if (endGameScreen.activeSelf == false)
+        if (player[0] == null || player[1] == null)
+        {
+            endGameScreen.SetActive(true);
+            scoreCanvas.SetActive(false);
+        }
+        if(!endGameScreen.activeSelf || !wonGameScreen.activeSelf)
+        {
+            disablePause = true;
+        }
+
+        if (!disablePause)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -42,13 +53,6 @@ public class PauseMenu : MainMenu {
         if (Input.GetKeyDown(KeyCode.R))
         {
             Restart();
-        }
-
-        if(player[0] == null || player[1] == null)
-        {
-            endGameScreen.SetActive(true);
-            scoreCanvas.SetActive(false);
-
         }
     }
 
@@ -73,8 +77,8 @@ public class PauseMenu : MainMenu {
         source.PlayOneShot(buttonPressSound);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
         lvlChanger.FadeToLevel(currentlvl);
+        Wait();
     }
 
     public void LoadMainMenu()
@@ -82,6 +86,12 @@ public class PauseMenu : MainMenu {
         Time.timeScale = 1f;
         GameIsPaused = false;
         lvlChanger.FadeToLevel(0);
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        GameIsPaused = false;
     }
 
 }

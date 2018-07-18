@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour {
     public int playerFirstScore, playerSecondScore;
     TextMeshProUGUI score;
     public TextMeshProUGUI whoWonText;
-    public GameObject wonTheGameScreen;
+    public GameObject wonTheGameScreen, tips;
     string plOne, plTwo;
 
 	void Awake () {
@@ -17,8 +17,13 @@ public class ScoreManager : MonoBehaviour {
         playerFirstScore = 0;
         playerSecondScore = 0;
     }
-	
-	void Update () {
+
+    private void Start()
+    {
+        Invoke("DisableTips",2.5f);
+    }
+
+    void Update () {
         score.text = "Punkty: " + playerFirstScore + " | "+ playerSecondScore;
         if(playerFirstScore >= howManyPointsToWin)
         {
@@ -34,7 +39,12 @@ public class ScoreManager : MonoBehaviour {
     {
         whoWonText.text = "Congrats " + playerWhoWon + " you won the game";
         score.gameObject.SetActive(false);
-        Time.timeScale = 0f;
         wonTheGameScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    void DisableTips()
+    {
+        tips.SetActive(false);
     }
 }

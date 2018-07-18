@@ -10,6 +10,9 @@ TagManager:
   - Audio
   - Slider
   - Manager
+  - Quality
+  - Toggle
+  - Options
   layers:
   - Default
   - TransparentFX

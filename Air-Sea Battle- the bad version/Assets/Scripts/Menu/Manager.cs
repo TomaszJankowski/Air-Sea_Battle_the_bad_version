@@ -4,22 +4,21 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using TMPro;
-
+using System.Collections;
 
 public class Manager : MonoBehaviour {
 
     public AudioManager audioM;
-    public TMP_Dropdown quality;
-    public Toggle fullscreen;
 
+    public TMP_Dropdown quality;
+
+    public Toggle toggle;
+    bool dont;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void OnEnable()
-    {
+        toggle = FindObjectOfType<Dropdown>().toggle;
         Load();
     }
 
@@ -36,9 +35,7 @@ public class Manager : MonoBehaviour {
 
         data.volume = audioM.currentvolume;
         data.qualitySetting = QualitySettings.GetQualityLevel();
-        data.fullscreenState = Screen.fullScreen;
         bf.Serialize(SaveFile, data);
-        Debug.Log(fullscreen.isOn + " " + data.fullscreenState);
         SaveFile.Close();
     }
 
@@ -50,14 +47,12 @@ public class Manager : MonoBehaviour {
             FileStream loadFile = File.Open(Application.persistentDataPath + "/SavedData.dat", FileMode.Open);
             PlayerData data = (PlayerData)bf.Deserialize(loadFile);
             loadFile.Close();
-
+            Debug.Log(Screen.fullScreen);
             audioM.currentvolume = data.volume;
-            quality.value = data.qualitySetting;
             QualitySettings.SetQualityLevel(data.qualitySetting);
-            fullscreen.isOn = data.fullscreenState;
-            Screen.fullScreen = data.fullscreenState;
-            Debug.Log(fullscreen.isOn + " " + data.fullscreenState);
-
+            quality.value = QualitySettings.GetQualityLevel();
+            toggle.isOn = Screen.fullScreen;
+            
         }
     }
 
@@ -66,7 +61,6 @@ public class Manager : MonoBehaviour {
     {
         public float volume;
         public int qualitySetting;
-        public bool fullscreenState;
     }
 }
 

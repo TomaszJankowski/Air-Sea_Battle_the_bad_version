@@ -38,6 +38,8 @@ public class EnemySpecial : EnemyBasic {
                 {
                     FollowFromRight();
                 }
+
+                Invoke("Dead", 6f);
             }
         }
     }

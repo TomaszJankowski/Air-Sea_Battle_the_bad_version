@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
@@ -6,8 +7,9 @@ public class Dropdown : MonoBehaviour {
 
     public TMP_Dropdown quality;
     public TMP_Text label;
+    public Toggle toggle;
 
-    private void Awake()
+    private void Start()
     {
         quality.value = QualitySettings.GetQualityLevel();
         List<TMP_Dropdown.OptionData> menuOptions = quality.options;

@@ -133,8 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioM: {fileID: 114591816495646718}
   quality: {fileID: 114381936695269394, guid: 14cd9300a64eff347b5d5dd3a0eceb28, type: 2}
-  fullscreen: {fileID: 114108768885825152, guid: 14cd9300a64eff347b5d5dd3a0eceb28,
-    type: 2}
+  toggle: {fileID: 0}
 --- !u!114 &114435517584921614
 MonoBehaviour:
   m_ObjectHideFlags: 1

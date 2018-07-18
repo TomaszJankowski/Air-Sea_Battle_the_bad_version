@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 4
-  speed: 1
+  speed: 1.5
   score: {fileID: 114791353017247158, guid: 3dab2bc771feeea4bae0fef9231c0b49, type: 2}
   anim: {fileID: 1866037846859254}
   spawnPoint: {fileID: 0}

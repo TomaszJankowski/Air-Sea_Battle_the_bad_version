@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
@@ -23,7 +24,6 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnLvlFinshedLoading;
@@ -39,10 +39,7 @@ public class AudioManager : MonoBehaviour {
         if (scene.name == "Menu")
         {
             volume = currentvolume;
-           // volumeSlider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
             volumeSlider.value = volume;
         }
-        Debug.Log(scene.name);
     }
-
 }

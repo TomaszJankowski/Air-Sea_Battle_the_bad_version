@@ -25,8 +25,6 @@ public class MainMenu : MonoBehaviour {
             manager.GetComponentInChildren<AudioManager>().volumeSlider = slider;
         }
 
-
-
         lvlChanger = FindObjectOfType<LvlChanger>();
         source = GetComponent<AudioSource>();
         source.PlayDelayed(0.3f);

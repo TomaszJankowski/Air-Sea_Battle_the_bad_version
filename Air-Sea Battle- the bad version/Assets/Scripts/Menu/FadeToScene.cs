@@ -10,9 +10,4 @@ public class FadeToScene : MonoBehaviour {
         animator = GetComponent<Animator>();
         animator.SetTrigger("FadeInOptions");
     }
-
-    private void OnDisable()
-    {
-        animator.SetTrigger("FadeOutOptions");
-    }
 }
